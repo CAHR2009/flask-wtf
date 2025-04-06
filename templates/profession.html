@@ -1,16 +1,23 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if "инженер" in prof or "строитель" in prof %}
-        <h2 class="sigm" align="center">Инженерные тренажеры</h2>
-        <div class="sigm">
-            <img src="{{link_eng}}">
-        </div>
+    {% set prof_list = ["инженер-исследователь", "пилот", "строитель", "экзобиолог", "врач",
+        "инженер по терраформированию", "климатолог", "специалист по радиационной защите", "астрогеолог",
+        "гляциолог", "инженер жизнеобеспечения", "метеоролог", "оператор марсохода", "киберинженер", "штурман",
+        "пилот дронов"] %}
+    <h2>Список профессий</h2>
+    {% if list_type == "ol" %}
+        <ol class="lh-1">
+            {% for prof in prof_list %}
+                <li>{{prof}}</li>
+            {% endfor %}
+        </ol>
     {% else %}
-        <h2 class="sigm" align="center">Научные симуляторы</h2>
-        <div class="sigm">
-            <img src="{{link_sient}}">
-        </div>
+        <ul class="lh-1">
+            {% for prof in prof_list %}
+                <li>{{prof}}</li>
+            {% endfor %}
+        </ul>
     {% endif %}
 
 {% endblock %}
