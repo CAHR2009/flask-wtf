@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% set form_spic = ["Фамилия", "Имя", "Образование", "Профессия", "Мотивация", "Готовы остаться на Марсе?"] %}
+    {% for i in form if i[0] != "csrf_token" %}
+      <p class="h4 mb-3">{{ form_spic[loop.index - 1] }}: {{ i[1] }}</p>
+    {% endfor %}
+{% endblock %}
